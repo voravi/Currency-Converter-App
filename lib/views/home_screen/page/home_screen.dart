@@ -22,9 +22,12 @@ class _HomePageState extends State<HomePage> {
   int amount = 1;
   TextEditingController amountController = TextEditingController();
 
-
   defaultData() {
-    Provider.of<ConverterProvider>(context,listen: false).convertCurrencies(want: "${currencyName[val2]}", have: "${currencyName[val1]}", amount: double.parse(amountController.text));
+    Provider.of<ConverterProvider>(context, listen: false).convertCurrencies(
+      want: "${currencyName[val2]}",
+      have: "${currencyName[val1]}",
+      amount: double.parse(amountController.text),
+    );
   }
 
   @override
@@ -45,7 +48,9 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               Row(
                 children: [
                   Text(
@@ -86,7 +91,6 @@ class _HomePageState extends State<HomePage> {
                       )),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton(
-
                       borderRadius: BorderRadius.circular(10),
                       value: val1,
                       isExpanded: true,
@@ -228,7 +232,8 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(20),
                       onTap: () async {
-                        Provider.of<ConverterProvider>(context,listen: false).convertCurrencies(want: "${currencyName[val2]}", have: "${currencyName[val1]}", amount: double.parse(amountController.text));
+                        Provider.of<ConverterProvider>(context, listen: false)
+                            .convertCurrencies(want: "${currencyName[val2]}", have: "${currencyName[val1]}", amount: double.parse(amountController.text));
                       },
                       child: Container(
                         padding: EdgeInsets.all(15),
